@@ -1,0 +1,29 @@
+name: release-api
+on:
+  create:
+    tags: 'v*'
+
+jobs:
+  release-api:
+    name: "API Automatic release"
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Release"
+      run: |
+        echo "Prepairing realse"
+    - name: Automatic Releases
+      uses: marvinpinto/action-automatic-releases@v1.1.0
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        automatic_release_tag: "latest"
+        files: |
+          public
+          routes
+          src
+          Dockerfile
+          README.md
+          index.js
+          package.json
