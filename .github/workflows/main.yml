@@ -38,3 +38,4 @@ jobs:
           npm start & sleep 2
           newman run ./GITHUBCI.postman_collection.json
           kill 9 `lsof -i:42069 -t`
+     

@@ -13,7 +13,7 @@ Router.post('/login', (req, res) => {
         username: 'aled',
         password: 'workshop'
     }
-    if (!req.body || !req.body.password) {
+    if (!req.body.username || !req.body.password) {
         res.status(400).send({status: 400, message:'Bad request'});
     } else {
         res.status(200).send({status:200, message:'OK. Logged in'});
