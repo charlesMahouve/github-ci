@@ -32,8 +32,10 @@ jobs:
       - name: install dependencies
         run: npm install
 
-      # Runs a set of commands using the runners shell
-      - name: install newman
+      - name: Install newman
+        run: npm install -g newman
+        
+      - name: Run API & PostMan tests
         run: |
           npm start & sleep 2
           newman run ./GITHUBCI.postman_collection.json
